@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./main.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="./node_modules/sweetalert/dist/sweetalert.min.js">
+    <script src="./node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+    
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Calculadora de cuotas</title>
+</head>
+<body>
+    <div id="app">
+        <div class="container-sm">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#"><img src="//www.charlesbabbage.edu.ar/pluginfile.php/1/theme_moove/logo/1666991362/Foto%20Perfil%20Babbage.png" height="52px" width="46px" alt="CVCB"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Calculadora de cuotas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Under Construction</a>
+                </li>
+            </ul>
+            <br>
+            <!-- Formato de formulario -->
+            <br>
+            <h1>Calculadora de cuotas</h1>
+            <hr>
+            <br>
+            <form>
+                <div class="mb-6 row">
+                    <h3>Año en curso</h3>
+                    <select required class="form-select" name="anio" id="" v-model:"anio">
+                        <option :value="item.value" v-for="item in anios">{{ item.name }}</option>
+                    </select>
+                    <select class="form-select" name="anio" v-model="obtenerAnios">
+                        <option :value="item.value" v-for="item in anios">{{ item.name }}</option>
+                    </select>
+                </div>
+                <div class="mb-6 row">
+                    <h3>Mes en que abona</h3>
+                    <select class="form-select" name="meses" v-model="obtenerMeses">
+                    </select>
+                </div>
+                <div class="mb-6 row">
+                    <h3>Fecha de pago</h3>
+                    <select class="form-select" aria-label="Fecha de pago">
+                    </select>
+                </div>
+                <div class="mb-6 row">
+                    <h3>Total</h3>
+                    <input type="text" class="form-control" id="total">
+                </div>
+            </form>
+            <button type="button" class="btn btn-primary" @click="calculo">Calculo</button>
+        </div>
+    </div>
+</body>
+<script>
+    apps.mount("#app");
+</script>
+</html>
