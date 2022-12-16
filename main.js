@@ -1,14 +1,18 @@
+import { createApp } from 'vue';
 const { default: swal } = require("sweetalert");
 const { setActionValue } = require("sweetalert/typings/modules/state");
 
-const apps = Vue.createApp({
+
+const app = Vue.createApp({
     data() {
       return {
         item: null,
         fecha: null,
         error: null,
         meses: null,
+        anios: null,
         anio: null,
+        mes: null
       }
     },
     computed:{
@@ -75,6 +79,9 @@ const apps = Vue.createApp({
         },
     },
     mounted(){
-
+        let vAnios = obtenerAnios();
+        console.log(vAnios);
+        obtenerMeses();
+        datos();
     }
-}).mount('#app')
+})
