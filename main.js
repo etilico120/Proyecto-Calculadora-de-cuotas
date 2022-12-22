@@ -117,9 +117,12 @@ const app = Vue.createApp({
         calculoConAumento(){
             let total = 0;
             let hoy = new Date();
-            let fechaSeleccionada = new Date(this.fecha);
-            let diferencia = new Date((fechaSeleccionada-this.fecha)).getDate()
-            if (diferencia > 15){
+            // let fechaSeleccionada = new Date(this.fecha);
+            // let diferencia = new Date((fechaSeleccionada-this.fecha)).getDate()
+            var selectedFecha = moment(this.fecha).format('DD');
+
+            // if (diferencia > 15)
+            if (selectedFecha > 15){
                 this.total = this.total + 400
             }
         }
